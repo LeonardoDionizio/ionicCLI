@@ -1,14 +1,26 @@
 <ion-header>
   <ion-navbar>
-    <ion-title>Dynamic Page</ion-title>
+    <ion-title>Dynamic Page - Github Users</ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content padding>
   <header></header>
 
-  <button ion-button block (click)="onIncrement()">
+  <button ion-button block color="dark" (click)="onIncrement()">
     <ion-icon name="logo-github"></ion-icon>
-    &emsp;Github
+    &emsp;Get Github Users
   </button>
+
+  <ion-list>
+    <ion-card *ngFor="let user of gitUsers">
+        <img [src]="user.avatar_url"/>
+        <ion-card-content>
+          <ion-card-title>
+            <h5><strong>User: </strong>{{ user.login }}</h5>
+            </ion-card-title>
+        </ion-card-content>
+      </ion-card>
+
+  </ion-list>
 </ion-content>
